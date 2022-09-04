@@ -3,7 +3,7 @@
     --main-text-size: 48px; 
     --main-text-weight:'extra-bold';
      --main-text-clr: #F0FAF8;
-    --secondary-text-size: 18px;
+    --secondary-text-size: 14px;
     --secondary-text-clr: #F9FAF8;
 
     --btn-clr: #3882F6;
@@ -26,11 +26,15 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     height: 5em;
     width: 100%;
-    background-color: transparent;
+    z-index: 10;
+    background-color: var(--bg-dark);
 }
 
 .burger-menu {
@@ -59,7 +63,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     padding: .75em;
@@ -116,16 +120,13 @@ button {
 }
 
 #hero .container {
-    padding-inline: 5em;
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3em;
     width: 100%;
     height: 100%;
+    padding-inline: 2em;
 }
 
 .hero-img {
@@ -140,7 +141,7 @@ button {
     gap: 1em;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 610px) {
     nav ul {
         display: none;
     }
@@ -164,6 +165,7 @@ button {
 @media (max-width: 940px) {
     h5 {
         font-size: x-small;
+        padding-inline: .5em;
     }
 }
 
@@ -171,6 +173,7 @@ button {
     #hero .container {
         flex-direction: column;
         padding-inline: 1em;
+        gap: 3em;
     }
 
     .left-hero-container {
@@ -189,4 +192,119 @@ button {
         max-width: 50em;
         line-height: 3em;
     }
+}
+
+#about {
+    height: 100vh;
+}
+
+#about .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#about h3 {
+    font-size: 4em;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    gap: 2em;
+    padding-inline: 2em;
+    padding-bottom: 5em;
+}
+
+.card {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card img {
+    height: 20em;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    transition: all .15s ease-in-out;
+}
+
+.card p {
+    position: absolute;
+    z-index: 2;
+    color: transparent;
+    transition: all .15s ease-in-out;
+}
+
+.card:hover p {
+    scale: 2.25;
+    color: var(--secondary-text-clr);
+    transition: all .15s ease-in-out;
+}
+
+.card:hover img {
+    opacity: .5;
+    scale: 1.25;
+    object-fit: cover;
+    transition: all .15s ease-in-out;
+}
+
+.card:hover {
+    transition: all .15s ease-in-out;
+    background-color: black;
+    cursor: crosshair;
+}
+
+@media (max-width: 1000px) {
+
+    #about .container {
+        padding-top: 5em;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1;
+        padding: 0;
+    }
+
+    .card img{
+        width: 20em;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 690px) {
+
+    .cards {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #about h3 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 460px) {
+    #about h3 {
+        font-size: 2em;
+    }
+}
+
+#testimonial {
+    height: 100vh;
+}
+
+#contact {
+    height: 100vh;
 }
