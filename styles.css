@@ -23,6 +23,10 @@
     text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     height: 100vh;
 }
@@ -33,19 +37,23 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
-    height: 5em;
+    height: 8em;
     width: 100%;
     z-index: 10;
     background-color: var(--bg-dark);
 }
 
 .burger-menu {
+    position: fixed;
+    top: 2em;
+    right: 0;
     display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: .5em;
     width: 5em;
+    cursor: pointer;
 }
 
 .burger-menu .bar {
@@ -79,11 +87,12 @@ nav ul {
 }
 
 nav ul li {
+    padding-block: 1em;
     transition: all .15s ease-in-out;
 }
 
 nav li:hover {
-    scale: 1.5;
+    background-color: #70768067;
     transition: all .15s ease-in-out;
 }
 
@@ -144,12 +153,38 @@ button {
 }
 
 @media (max-width: 610px) {
+    header {
+        height: fit-content;
+    }
+
+    .active {
+        display: flex;
+    }
+
     nav ul {
         display: none;
+        flex-direction: column;
+        background-color: var(--bg-dark);
+        width: 100%;
+        padding-left: 0;
     }
     
     .burger-menu {
         display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .link {
+        display: block;
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
     }
 }
 
@@ -346,5 +381,62 @@ button {
 }
 
 #contact {
+    display: grid;
+    place-items: center;
     height: 100vh;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    width: 80vw;
+    height: 10em;
+    background-color: var(--btn-clr);
+    color: var(--main-text-clr);
+    border-radius: 10px;
+    margin-bottom: 15em;
+}
+
+.contact-text h3 {
+    font-weight: 900;
+    font-size: 1.75em;
+}
+
+.contact-container button {
+    font-size: 1em;
+    font-weight: 600;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+@media (max-width: 790px) {
+    .contact-container {
+        width: 100vw;
+        border-radius: 0%;
+    }
+}
+
+@media (max-width: 630px) {
+    .contact-container {
+        justify-content: space-around;
+        flex-direction: column;
+        gap: 2em;
+        height: 15em;
+        font-size: .75em;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: -102em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 100%;
+    background-color: var(--bg-dark);
+    color: var(--main-text-clr);
+    font-size: 1.5em;
 }
