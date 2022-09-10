@@ -10,7 +10,9 @@
     --header-text: 36px 'extra-bold' #1F2937;
 
     --quote-bg: #E5E7EB;
-    --quote-text: 36px 'light italic' #1F2937;
+    --quote-txt-size: 36px;
+    --quote-txt-weight: 'light italic';
+    --quote-clr: #1F2937;
 }
 
 *, *::before, *::after {
@@ -267,7 +269,7 @@ button {
 @media (max-width: 1000px) {
 
     #about .container {
-        padding-top: 5em;
+        padding-block: 2em;
     }
 
     .cards {
@@ -278,6 +280,7 @@ button {
 
     .card img{
         width: 20em;
+        height: 15em;
         object-fit: cover;
     }
 }
@@ -290,8 +293,15 @@ button {
         flex-direction: column;
     }
 
+    .card img{
+        width: 20em;
+        height: 9em;
+        object-fit: cover;
+    }
+
     #about h3 {
         font-size: 3em;
+        padding-block: .75em;
     }
 }
 
@@ -303,6 +313,36 @@ button {
 
 #testimonial {
     height: 100vh;
+}
+
+#testimonial .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5em;
+    background-color: var(--quote-bg);
+}
+
+.quote {
+    font-size: var(--quote-txt-size);
+    font-weight: var(--quote-txt-weight);
+    columns: var(--quote-clr);
+    max-width: 50%;
+}
+
+.author {
+    width: 80%;
+    text-align: end;
+    font-size: 1em;
+}
+
+@media (max-width: 975px) {
+    .quote {
+        font-size: 1.5em;
+        max-width: 70%;
+    }
 }
 
 #contact {
