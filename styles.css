@@ -384,6 +384,7 @@ button {
     display: grid;
     place-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .contact-container {
@@ -396,7 +397,6 @@ button {
     background-color: var(--btn-clr);
     color: var(--main-text-clr);
     border-radius: 10px;
-    margin-bottom: 15em;
 }
 
 .contact-text h3 {
@@ -429,8 +429,6 @@ button {
 }
 
 footer {
-    position: absolute;
-    bottom: -102em;
     display: flex;
     justify-content: center;
     align-items: center;
